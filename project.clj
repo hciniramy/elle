@@ -8,6 +8,7 @@
                  [knossos "0.3.7"
                   :exclusions [org.slf4j/slf4j-log4j12]]
                  [org.clojure/tools.logging "0.6.0"]
+                 [org.clojure/tools.cli "1.0.206"]
                  [rhizome "0.2.9"]
                  [jepsen.txn "0.1.3-SNAPSHOT"]
                  [io.lacuna/bifurcan "0.2.0-alpha4"]]
@@ -17,6 +18,8 @@
   :jvm-opts ["-server"
              ;"-XX:+PrintGC"
              ]
+  :main elle.cli
+  :aot [elle.cli]
   :repl-options {:init-ns elle.core}
   :test-selectors {:default (fn [m] (not (or (:perf m)
                                              (:interactive m)
